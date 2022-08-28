@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlockLumpManager {
-    List<BlockLumpBase> blocks = new ArrayList<>();
+    List<BlockLumpBase> blockLumps = new ArrayList<>();
+
+    public void addBlockLump(BlockLumpBase blockLump){
+        blockLumps.add(blockLump);
+    }
 
     public void updateBlockLump(){
-        for (BlockLumpBase blockLump: blocks){
-            updateBlockLump();
+        for (BlockLumpBase blockLump: blockLumps){
+            blockLump.updateBlock();
         }
     }
 }

@@ -2,7 +2,7 @@ package net.kunmc.lab.unte.command;
 
 import net.kunmc.lab.commandlib.Command;
 import net.kunmc.lab.commandlib.CommandContext;
-import net.kunmc.lab.unte.game.GameManager;
+import net.kunmc.lab.unte.game.UnteGameManager;
 
 public class Difficulty extends Command {
     public Difficulty() {
@@ -18,12 +18,12 @@ public class Difficulty extends Command {
 
     @Override
     public void execute(CommandContext ctx) {
-        if (GameManager.isRunning()) {
+        if (UnteGameManager.isRunning()) {
             ctx.sendFailure("ゲームを停止してから実行してください");
             return;
         }
 
         System.out.println(Difficulty.class.getName() + ": " + ctx.getArgs().get(0));
-        ctx.sendSuccess("難易度を" + GameManager.difficulty + "にしました");
+        ctx.sendSuccess("難易度を" + UnteGameManager.difficulty + "にしました");
     }
 }

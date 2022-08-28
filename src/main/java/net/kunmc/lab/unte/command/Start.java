@@ -3,7 +3,7 @@ package net.kunmc.lab.unte.command;
 import net.kunmc.lab.commandlib.Command;
 import net.kunmc.lab.commandlib.CommandContext;
 import net.kunmc.lab.unte.Unte;
-import net.kunmc.lab.unte.game.GameManager;
+import net.kunmc.lab.unte.game.UnteGameManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -14,7 +14,9 @@ public class Start extends Command {
 
     @Override
     public void execute(CommandContext ctx) {
-        if (GameManager.isRunning()) {
+        System.out.println("AAAAA");
+        if (UnteGameManager.isRunning()) {
+            System.out.println("BBBB");
             ctx.sendFailure("既に開始しています");
             return;
         }
@@ -25,7 +27,7 @@ public class Start extends Command {
             Unte.getPlugin().config.startLocation.value(player.getLocation());
         }
 
-        GameManager.gameController(GameManager.GameMode.MODE_START);
+        UnteGameManager.gameController(UnteGameManager.GameMode.MODE_START);
         ctx.sendSuccess("開始しました");
     }
 }

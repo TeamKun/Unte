@@ -10,14 +10,15 @@ public class StraightBlockLump implements BlockLumpBase {
     int xDirect;
     int zDirect;
     String type;
+    int updateTimer;
 
-    public StraightBlockLump(List<Block> blocks, Material material, int xDirect, int zDirect, String type){
+    public StraightBlockLump(List<Block> blocks, Material material, int xDirect, int zDirect, String type, int updateTimer){
         this.blocks = blocks;
         this.material = material;
         this.xDirect = xDirect;
         this.zDirect = zDirect;
         this.type = type;
-
+        this.updateTimer = updateTimer;
     }
 
     public void updateBlock(){
@@ -36,5 +37,9 @@ public class StraightBlockLump implements BlockLumpBase {
     }
 
     public void removeBlock(){
+    }
+
+    public void addBlock(Block block, Material material) {
+
     }
 }
